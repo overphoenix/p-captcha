@@ -1,0 +1,22 @@
+.container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fff;
+}
+.checkbox {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  cursor: pointer;
+}
+.spinner {
+  width: 24px;
+  height: 24px;
+}
+.text {
+  color: #333;
+}

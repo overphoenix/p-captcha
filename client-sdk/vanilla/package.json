@@ -1,0 +1,27 @@
+{
+  "name": "p-captcha-vanilla",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/p-captcha-vanilla.umd.js",
+  "module": "./dist/p-captcha-vanilla.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/p-captcha-vanilla.es.js",
+      "require": "./dist/p-captcha-vanilla.umd.js"
+    }
+  },
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "dependencies": {}
+}

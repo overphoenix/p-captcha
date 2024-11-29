@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "moduleResolution": "node"
+  },
+  "extends": "./tsconfig.json"
+}
