@@ -1,4 +1,4 @@
-import { Errors } from "../constants.ts";
+import { Errors } from "../constants.js";
 
 export function bigIntToBase64(bigInt: bigint) {
   // Convert BigInt to hex string without the '0x' prefix

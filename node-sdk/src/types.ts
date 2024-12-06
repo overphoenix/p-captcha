@@ -1,4 +1,4 @@
-import { ChallengeTypes, Woodalls } from "./constants.ts";
+import { ChallengeTypes, Woodalls } from "./constants.js";
 
 export type RawChallenge = string;
 export type RawAnswer = string;
@@ -16,6 +16,8 @@ export type Challenge = {
   problem: Problem;
 };
 
+export type ChallengeId = string;
+
 export type IsSuccess = boolean;
 export interface CaptchaStorage {
   saveItem: (key: string, value: string) => IsSuccess;
@@ -27,7 +29,7 @@ export interface CaptchaService {
   generateChallenge: (
     type: ProblemType,
     options: GenerateChallengeOptions
-  ) => RawChallenge | null;
+  ) => { id: ChallengeId; challenge: RawChallenge } | null;
   validateAnswer: (challenge: RawChallenge, answer: RawAnswer) => IsSuccess;
 }
 

@@ -1,8 +1,10 @@
-export { BaseCaptchaService, InMemoryCaptchaService } from './main.ts';
+export { BaseCaptchaService, InMemoryCaptchaService } from './main.js';
+export { WoodallAliases } from './constants.js';
+
 export type {
   CaptchaService,
   CaptchaStorage,
   GenerateChallengeOptions,
   IsSuccess,
   QuadraticResidueProblemOptions
-} from './types.ts'; 
+} from './types.js'; 

@@ -1,22 +1,23 @@
-import { getRandomValues, createHash } from "crypto";
+import { createHash } from "crypto";
 import type {
+  ChallengeId,
   ProblemType,
   QuadraticResidueProblem,
   RawAnswer,
   RawChallenge,
-} from "./types.ts";
+} from "./types.js";
 
-import { Woodalls, ChallengeTypes, Errors } from "./constants.ts";
-import { base64ToBigInt, bigIntToBase64 } from "./utils/serializers.ts";
-import { parseChallenge } from "./utils/parseChallenge.ts";
+import { Woodalls, ChallengeTypes, Errors } from "./constants.js";
+import { base64ToBigInt, bigIntToBase64 } from "./utils/serializers.js";
+import { parseChallenge } from "./utils/parseChallenge.js";
 import {
   CaptchaService,
   CaptchaStorage,
   GenerateChallengeOptions,
   IsSuccess,
   QuadraticResidueProblemOptions,
-} from "./types.ts";
-import { getRandomBigInt } from "./utils/getRandomBigInt.ts";
+} from "./types.js";
+import { getRandomBigInt } from "./utils/getRandomBigInt.js";
 
 export class BaseCaptchaService implements CaptchaService {
   constructor(private readonly storage: CaptchaStorage) {
@@ -31,19 +32,18 @@ export class BaseCaptchaService implements CaptchaService {
     switch (type) {
       case ChallengeTypes[0]:
         const challenge = this.generateQuadraticResidueProblem(options);
-        this.storeChallenge(challenge);
-        return challenge;
+        const id = this.storeChallenge(challenge);
+        return { id, challenge };
     }
     return null;
   }
 
-  validateAnswer(challenge: RawChallenge, answer: RawAnswer): IsSuccess {
-    const hash = createHash("md5").update(challenge).digest("hex");
-    const storedChallenge = this.storage.getItem(hash);
+  validateAnswer(id: ChallengeId, answer: RawAnswer): IsSuccess {
+    const storedChallenge = this.storage.getItem(id);
 
-    if (challenge && challenge === storedChallenge) {
-      this.storage.removeItem(hash);
-      const { type, problem } = parseChallenge(challenge);
+    if (storedChallenge) {
+      this.storage.removeItem(id);
+      const { type, problem } = parseChallenge(storedChallenge);
 
       switch (type) {
         case ChallengeTypes[0]:
@@ -54,10 +54,10 @@ export class BaseCaptchaService implements CaptchaService {
     return false;
   }
 
-  private storeChallenge(challenge: RawChallenge): IsSuccess {
+  private storeChallenge(challenge: RawChallenge): ChallengeId {
     const hash = createHash("md5").update(challenge).digest("hex");
     this.storage.saveItem(hash, challenge);
-    return true;
+    return hash;
   }
 
   private generateQuadraticResidueProblem(
@@ -66,8 +66,6 @@ export class BaseCaptchaService implements CaptchaService {
     const p = Woodalls[options.woodall];
     let ns = [];
     for (let i = 0; i < options.rounds; i++) {
-      const array = new Uint8Array(32);
-      getRandomValues(array);
       const x = (getRandomBigInt(2 ** 10 * 16) % (p - 1n)) + 1n;
       const n = (x * x) % p;
       ns.push(n);
@@ -84,7 +82,12 @@ export class BaseCaptchaService implements CaptchaService {
     answer: RawAnswer,
     problem: QuadraticResidueProblem
   ) {
-    const answers = answer.split(",").map(base64ToBigInt);
+    let answers: bigint[];
+    try {
+      answers = answer.split(",").map(base64ToBigInt);
+    } catch {
+      return false;
+    }
     const p = problem.prime;
     for (let i = 0; i < problem.challenges.length; i++) {
       const ans = answers[i];

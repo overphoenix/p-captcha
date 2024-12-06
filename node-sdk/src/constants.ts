@@ -25,3 +25,12 @@ export const Woodalls: Record<string, bigint> = {
   "18885*2^18885-1": 18885n * 2n ** 18885n - 1n,
   "22971*2^22971-1": 22971n * 2n ** 22971n - 1n,
 };
+
+const sizes = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"] as const;
+
+export const WoodallAliases: Record<string, string> = Object.keys(
+  Woodalls
+).reduce((acc: Record<string, string>, value, index) => {
+  acc[sizes[index]] = value;
+  return acc;
+}, {});
