@@ -1,6 +1,6 @@
+import { PCaptchaWidget } from "p-captcha-react";
 import { useState, useEffect } from "react";
 import "./App.css";
-import { PCaptchaWidget } from "p-captcha-react";
 
 async function getChallenge(): Promise<{ challenge: string; id: string }> {
   const response = await fetch("http://localhost:3000/api/challenge");
@@ -8,7 +8,7 @@ async function getChallenge(): Promise<{ challenge: string; id: string }> {
   return { challenge, id };
 }
 
-async function processForm(answer: string, id: string) {
+async function validateAnswer(answer: string, id: string) {
   const response = await fetch("http://localhost:3000/api/validate", {
     method: "POST",
     headers: {
@@ -35,7 +35,7 @@ function App() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    processForm(answer!, id!).then((res) => {
+    validateAnswer(answer!, id!).then((res) => {
       setResponse(res.text);
     });
   };
