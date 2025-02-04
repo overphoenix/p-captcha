@@ -74,7 +74,7 @@ function App() {
   return (
     <div className="flex items-center justify-center p-6">
       <div className="w-full max-w-3xl">
-        <h1 className="text-5xl font-semibold text-gray-900 mb-12 text-center">
+        <h1 className="text-5xl font-semibold text-gray-900 mb-12 text-center cursor-default">
           <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 bg-[length:100%_auto]">
             P‑Captcha
           </span>{" "}
