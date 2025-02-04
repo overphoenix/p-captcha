@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "AGPL-3.0",
   "dependencies": {
     "@p-captcha/node": "file:../../../node-sdk",
     "express": "^4.19.2"

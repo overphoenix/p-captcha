@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "description": "",
   "scripts": {
     "install": "npm run install:backend && npm run install:frontend",

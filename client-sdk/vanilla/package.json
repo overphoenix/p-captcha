@@ -1,5 +1,6 @@
 {
   "name": "@p-captcha/js",
+  "license": "AGPL-3.0",
   "files": [
     "dist"
   ],
