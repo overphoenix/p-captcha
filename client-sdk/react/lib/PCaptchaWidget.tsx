@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import spinner from "./assets/spinner.svg";
 import { worker } from "p-captcha-vanilla";
 import * as styles from "./PCaptchaWidget.module.css";
@@ -7,6 +7,7 @@ export type PCaptchaWidgetProps = {
   onVerified: (solution: string) => void;
   challenge: string;
   label?: string;
+  onSubmit?: () => void;
   classNameOverrides?: {
     container?: string;
     checkbox?: string;
@@ -17,6 +18,7 @@ export type PCaptchaWidgetProps = {
 
 export function PCaptchaWidget({
   onVerified,
+  onSubmit,
   challenge,
   label = "I'm human",
   classNameOverrides,
@@ -25,7 +27,14 @@ export function PCaptchaWidget({
   const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
 
+  useEffect(() => {
+    setIsChecked(false);
+    setIsLoading(false);
+    setIsVerified(false);
+  }, [challenge]);
+
   const handleCheck = async () => {
+    onSubmit?.();
     setIsChecked(true);
     setIsLoading(true);
 

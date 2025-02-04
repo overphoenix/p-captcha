@@ -14,13 +14,41 @@ app.use(express.json());
 
 const captchaService = new InMemoryCaptchaService();
 
+const difficultyMap = {
+  'super-easy': {
+    woodall: WoodallAliases.xs,
+    rounds: 1,
+  },
+  'easy': {
+    woodall: WoodallAliases.sm,
+    rounds: 2,
+  },
+  'medium': {
+    woodall: WoodallAliases.md,
+    rounds: 2,
+  },
+  'hard': {
+    woodall: WoodallAliases.lg,
+    rounds: 3,
+  },
+  'super-hard': {
+    woodall: WoodallAliases.xl,
+    rounds: 4,
+  },
+  'ultra-hard': {
+    woodall: WoodallAliases['2xl'],
+    rounds: 5,
+  },
+  'insane': {
+    woodall: WoodallAliases['3xl'],
+    rounds: 10,
+  },
+};
 app.get("/api/challenge", (req, res) => {
+  const { difficulty } = req.query;
   const { challenge, id } = captchaService.generateChallenge(
     "QuadraticResidueProblem",
-    {
-      woodall: WoodallAliases.md,
-      rounds: 2,
-    }
+    difficultyMap[difficulty]
   );
   res.json({ challenge, id });
 });
