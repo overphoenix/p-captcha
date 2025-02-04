@@ -1,5 +1,5 @@
 import express from "express";
-import { InMemoryCaptchaService, WoodallAliases } from "p-captcha-node";
+import { InMemoryCaptchaService, WoodallAliases } from "@p-captcha/node";
 
 const app = express();
 const port = 3000;

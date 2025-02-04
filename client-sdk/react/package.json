@@ -1,5 +1,5 @@
 {
-  "name": "p-captcha-react",
+  "name": "react",
   "version": "0.0.1",
   "type": "module",
   "main": "dist/main.js",
@@ -17,7 +17,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "p-captcha-vanilla": "file:../vanilla"
+    "@p-captcha/js": "file:../vanilla"
   },
   "peerDependencies": {
     "react": "^18.3.1",

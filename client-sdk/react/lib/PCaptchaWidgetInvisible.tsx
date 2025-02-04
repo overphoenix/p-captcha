@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { worker } from "p-captcha-vanilla";
+import { worker } from "@p-captcha/js";
 
 export type PCaptchaWidgetInvisibleProps = {
   onVerified: (solution: string) => void;

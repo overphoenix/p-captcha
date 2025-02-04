@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "p-captcha-node": "file:../../../node-sdk",
+    "@p-captcha/node": "file:../../../node-sdk",
     "express": "^4.19.2"
   },
   "scripts": {

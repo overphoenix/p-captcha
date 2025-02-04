@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
-      name: "p-captcha-vanilla",
-      fileName: (format) => `p-captcha-vanilla.${format}.js`,
+      name: "p-captcha-js",
+      fileName: (format) => `p-captcha-js.${format}.js`,
     },
   },
   plugins: [

@@ -1,14 +1,14 @@
 {
-  "name": "p-captcha-vanilla",
+  "name": "@p-captcha/js",
   "files": [
     "dist"
   ],
-  "main": "./dist/p-captcha-vanilla.umd.js",
-  "module": "./dist/p-captcha-vanilla.es.js",
+  "main": "./dist/p-captcha-js.umd.js",
+  "module": "./dist/p-captcha-js.es.js",
   "exports": {
     ".": {
-      "import": "./dist/p-captcha-vanilla.es.js",
-      "require": "./dist/p-captcha-vanilla.umd.js"
+      "import": "./dist/p-captcha-js.es.js",
+      "require": "./dist/p-captcha-js.umd.js"
     }
   },
   "version": "0.0.1",

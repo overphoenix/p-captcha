@@ -1,4 +1,4 @@
-import { PCaptchaWidget } from "p-captcha-react";
+import { PCaptchaWidget } from "@p-captcha/react";
 import { useState, useEffect } from "react";
 import { HyperText } from "./HyperText";
 

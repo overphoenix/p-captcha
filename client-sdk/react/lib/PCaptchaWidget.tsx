@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import spinner from "./assets/spinner.svg";
-import { worker } from "p-captcha-vanilla";
+import { worker } from "@p-captcha/js";
 import * as styles from "./PCaptchaWidget.module.css";
 
 export type PCaptchaWidgetProps = {
