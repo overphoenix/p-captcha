@@ -1,18 +1,25 @@
 import { useState } from "react";
 import spinner from "./assets/spinner.svg";
 import { worker } from "p-captcha-vanilla";
-import "./PCaptchaWidget.css";
+import * as styles from "./PCaptchaWidget.module.css";
 
 export type PCaptchaWidgetProps = {
   onVerified: (solution: string) => void;
   challenge: string;
   label?: string;
+  classNameOverrides?: {
+    container?: string;
+    checkbox?: string;
+    spinner?: string;
+    text?: string;
+  };
 };
 
 export function PCaptchaWidget({
   onVerified,
   challenge,
   label = "I'm human",
+  classNameOverrides,
 }: PCaptchaWidgetProps) {
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,17 +39,23 @@ export function PCaptchaWidget({
   };
 
   return (
-    <div className="container">
+    <div className={`${styles.container} ${classNameOverrides?.container}`}>
       {!isChecked && (
         <input
           type="checkbox"
           checked={isChecked}
           onChange={handleCheck}
-          className="checkbox"
+          className={`${styles.checkbox} ${classNameOverrides?.checkbox}`}
         />
       )}
 
-      {isLoading && <img src={spinner} alt="Loading" className="spinner" />}
+      {isLoading && (
+        <img
+          src={spinner}
+          alt="Loading"
+          className={`${styles.spinner} ${classNameOverrides?.spinner}`}
+        />
+      )}
 
       {isVerified && (
         <svg
@@ -57,7 +70,9 @@ export function PCaptchaWidget({
         </svg>
       )}
 
-      <span className="text">{label}</span>
+      <span className={`${styles.text} ${classNameOverrides?.text}`}>
+        {label}
+      </span>
     </div>
   );
 }
