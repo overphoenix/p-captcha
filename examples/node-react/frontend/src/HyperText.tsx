@@ -118,8 +118,8 @@ export function HyperText({
       ref={elementRef}
       className={
         className
-          ? `overflow-hidden py-2 text-4xl font-bold ${className}`
-          : "overflow-hidden py-2 text-4xl font-bold"
+          ? `overflow-hidden py-2 text-5xl font-bold ${className}`
+          : "overflow-hidden py-2 text-5xl font-bold"
       }
       onMouseEnter={handleAnimationTrigger}
       {...props}
