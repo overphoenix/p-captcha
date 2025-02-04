@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "motion": "^12.1.0",
+    "p-captcha-react": "file:../../../client-sdk/react",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "p-captcha-react": "file:../../../client-sdk/react"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

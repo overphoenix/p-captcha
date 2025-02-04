@@ -1,5 +1,6 @@
 import { PCaptchaWidget } from "p-captcha-react";
 import { useState, useEffect } from "react";
+import { HyperText } from "./HyperText";
 
 type Difficulty =
   | "super-easy"
@@ -73,8 +74,11 @@ function App() {
   return (
     <div className="flex items-center justify-center p-6">
       <div className="w-full max-w-3xl">
-        <h1 className="text-5xl font-semibold text-gray-900 mb-12 text-center tracking-tight">
-          P‑Captcha Demo
+        <h1 className="text-5xl font-semibold text-gray-900 mb-12 text-center">
+          <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 bg-[length:100%_auto]">
+            P‑Captcha
+          </span>{" "}
+          <HyperText as="span">Demo</HyperText>
         </h1>
 
         <div className="space-y-6">
