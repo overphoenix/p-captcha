@@ -12,16 +12,21 @@ export type PCaptchaWidgetProps = {
     container?: string;
     checkbox?: string;
     spinner?: string;
+    success?: string;
     text?: string;
   };
+  renderSpinner?: () => React.ReactNode;
+  renderSuccess?: () => React.ReactNode;
 };
 
 export function PCaptchaWidget({
   onVerified,
   onSubmit,
   challenge,
-  label = "I'm human",
+  label = "I'm not a robot",
   classNameOverrides,
+  renderSpinner,
+  renderSuccess,
 }: PCaptchaWidgetProps) {
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,16 +63,17 @@ export function PCaptchaWidget({
         />
       )}
 
-      {isLoading && (
+      {isLoading && (renderSpinner ? renderSpinner() : (
         <img
           src={spinner}
           alt="Loading"
           className={`${styles.spinner} ${classNameOverrides?.spinner}`}
         />
-      )}
+      ))}
 
-      {isVerified && (
+      {isVerified && (renderSuccess ? renderSuccess() : (
         <svg
+          className={classNameOverrides?.success}
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -75,9 +81,9 @@ export function PCaptchaWidget({
           stroke="green"
           strokeWidth="2"
         >
-          <path d="M20 6L9 17L4 12" />
-        </svg>
-      )}
+            <path d="M20 6L9 17L4 12" />
+          </svg>
+        ))}
 
       <span className={`${styles.text} ${classNameOverrides?.text}`}>
         {label}

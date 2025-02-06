@@ -105,7 +105,7 @@ export class InMemoryCaptchaService implements CaptchaService {
 
   constructor() {
     const _inMemoryMap: Map<string, string> = new Map();
-    const storate: CaptchaStorage = {
+    const storage: CaptchaStorage = {
       saveItem: (key: string, value: string) => {
         _inMemoryMap.set(key, value);
         return true;
@@ -117,7 +117,7 @@ export class InMemoryCaptchaService implements CaptchaService {
         return _inMemoryMap.delete(key);
       },
     };
-    this.service = new BaseCaptchaService(storate);
+    this.service = new BaseCaptchaService(storage);
   }
 
   generateChallenge(type: ProblemType, options: GenerateChallengeOptions) {
