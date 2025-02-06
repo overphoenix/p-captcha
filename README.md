@@ -15,7 +15,7 @@ P-Captcha is a lightweight, open-source CAPTCHA solution that uses proof-of-work
 - 🛡️ **DDoS** - Guard compute-expensive API endpoints
 - 🔒 **Account Takeover** - Prevent credential stuffing and brute force attacks
 
-![P-captcha Demo](./docs/assets/demo.mov)
+[![P-captcha Demo]](https://github.com/user-attachments/assets/8d5cc70a-ce2a-40fa-a258-e6436a467cc1)
 
 ## Quick Start
 
