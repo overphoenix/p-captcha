@@ -64,17 +64,14 @@ import { PCaptchaWidget, PCaptchaWidgetInvisible } from "@p-captcha/react";
 
 /* Or use invisible component that solves challenge when mounted */
 
-{
-	challenge && (
-		<PCaptchaWidgetInvisible
-		  challenge={challenge}
-		  onVerified={(solution) => {
-		    validateOnServer(solution);
-		  }}
-		/>
-	)
-}
-
+challenge && (
+  <PCaptchaWidgetInvisible
+    challenge={challenge}
+    onVerified={(solution) => {
+      validateOnServer(solution);
+    }}
+  />
+)
 ```
 
 ### 5. Validate the solution
