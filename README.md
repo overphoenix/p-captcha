@@ -109,6 +109,7 @@ captchaService.generateChallenge(
 ```
 
 `rounds`: How many problems user needs to solve
+
 `woodall`: Woodall prime number size controls problem difficulty
 
 | Woodall Prime number | Alias | Bits  | Time on Apple M2 Pro* |
