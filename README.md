@@ -57,8 +57,6 @@ app.get("/api/challenge", (req, res) => {
 ```javascript
 import { PCaptchaWidget, PCaptchaWidgetInvisible } from "@p-captcha/react";
 
-/* Requests to fetch challenge and validate */
-
 <PCaptchaWidget
   challenge={challenge}
   onVerified={(solution) => {
