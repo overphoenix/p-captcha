@@ -15,6 +15,10 @@ app.use(express.json());
 const captchaService = new InMemoryCaptchaService();
 
 const difficultyMap = {
+  'micro': {
+    woodall: WoodallAliases['2xs'],
+    rounds: 1,
+  },
   'super-easy': {
     woodall: WoodallAliases.xs,
     rounds: 1,

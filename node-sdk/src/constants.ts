@@ -7,6 +7,7 @@ export const Errors = {
 };
 
 /**
+ * 751*2^751-1 - ??? ms
  * 83*2^5318-1 - 238 ms
  * 7755*2^7755-1 - 598 ms
  * 9531*2^9531-1 - 931 ms
@@ -17,6 +18,7 @@ export const Errors = {
  */
 
 export const Woodalls: Record<string, bigint> = {
+  "751*2^751-1": 751n * 2n ** 751n - 1n,
   "83*2^5318-1": 83n * 2n ** 5318n - 1n,
   "7755*2^7755-1": 7755n * 2n ** 7755n - 1n,
   "9531*2^9531-1": 9531n * 2n ** 9531n - 1n,
@@ -26,7 +28,7 @@ export const Woodalls: Record<string, bigint> = {
   "22971*2^22971-1": 22971n * 2n ** 22971n - 1n,
 };
 
-const sizes = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"] as const;
+const sizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"] as const;
 
 export const WoodallAliases: Record<string, string> = Object.keys(
   Woodalls
