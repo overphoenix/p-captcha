@@ -4,6 +4,7 @@ import { HyperText } from "./HyperText";
 import * as styles from "./App.module.css";
 
 type Difficulty =
+  | "micro"
   | "super-easy"
   | "easy"
   | "medium"
@@ -18,6 +19,7 @@ type Theme =
   | "material";
 
 const difficultyInfo = {
+  micro: { rounds: 1, size: "2xs" },
   "super-easy": { rounds: 1, size: "xs" },
   easy: { rounds: 2, size: "sm" },
   medium: { rounds: 2, size: "md" },

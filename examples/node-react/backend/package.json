@@ -5,7 +5,7 @@
   "type": "module",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@p-captcha/node": "^0.0.1",
+    "@p-captcha/node": "^0.1.0",
     "express": "^4.19.2"
   },
   "scripts": {
