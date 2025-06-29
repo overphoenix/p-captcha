@@ -112,7 +112,7 @@ captchaService.generateChallenge(
 
 | Woodall Prime number | Alias | Bits  | Time on Apple M2 Pro* |
 | -------------------- | ----- | ----- | --------------------- |
-| 751*2^751-1          | 3xs   | 761   | ??? ms                |
+| 751*2^751-1          | 2xs   | 761   | ??? ms                |
 | 83*2^5318-1          | xs    | 5322  | 238 ms                |
 | 7755*2^7755-1        | sm    | 7765  | 598 ms                |
 | 9531*2^9531-1        | md    | 9542  | 931 ms                |
